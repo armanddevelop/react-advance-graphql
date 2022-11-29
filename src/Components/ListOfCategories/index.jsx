@@ -1,11 +1,11 @@
 import React from "react";
 import { Category } from "../Category";
 import { List, Item } from "./styles";
-import data from "../../../api/db.json";
+
+import { useGetData } from "../../Hooks/useGetData";
 
 export const ListOfCategories = () => {
-    //TODO remove this when connect to graphql
-    const { categories } = data;
+    const { categories } = useGetData();
     return (
         <List>
             {categories.map(({ id, cover, name, emoji, path }) => (

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { fadeIn } from "../../styles/animations";
 
 export const ImgWarpper = styled.div`
   border-radius: 10px;
@@ -12,7 +13,8 @@ export const ImgWarpper = styled.div`
 `;
 
 export const Img = styled.img`
-  box-shadow: 0 10px 14px rgba(0, 0, 0, 0.2);
+  ${fadeIn({ time: "2s" })}
+  box-shadow: 0 10px 14px rgba(0, 0, 0, 0.5);
   height: 100%;
   object-fit: cover;
   position: absolute;
