@@ -11,7 +11,7 @@ export const useGetData = () => {
         const data = await response.json();
         setCategories(data);
       } catch (error) {
-        console.error("something go wrong in useGetData ", error);
+        console.error("algo salio mal en en el metodo useGetData ", error);
       }
     };
     fetchCategories();
