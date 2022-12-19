@@ -12,6 +12,10 @@ export const ImgWarpper = styled.div`
   margin-top: 15px;
 `;
 
+export const Article = styled.article`
+  min-height: 200px;
+`;
+
 export const Img = styled.img`
   ${fadeIn({ time: "2s" })}
   box-shadow: 0 10px 14px rgba(0, 0, 0, 0.5);
