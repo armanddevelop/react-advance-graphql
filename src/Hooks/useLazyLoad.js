@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
-export const useLazyLoad = (element) => {
+export const useLazyLoad = () => {
   const [show, setShow] = useState(false);
+  const reference = useRef(null);
   useEffect(() => {
     const observer = new window.IntersectionObserver((entries) => {
       const { isIntersecting } = entries[0];
@@ -10,9 +11,10 @@ export const useLazyLoad = (element) => {
         observer.disconnect;
       }
     });
-    observer.observe(element.current);
-  }, [element]);
+    observer.observe(reference.current);
+  }, [reference]);
   return {
     show,
+    reference,
   };
 };

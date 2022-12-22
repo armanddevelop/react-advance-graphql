@@ -11,15 +11,17 @@ const _getInitLikesLocalStorage = (key) => {
 };
 
 export const useLocalStorage = (key) => {
-  const [liked, setLiked] = useState(_getInitLikesLocalStorage(key));
+  const [storedValues, setStoredValue] = useState(
+    _getInitLikesLocalStorage(key)
+  );
   const setLocalStorage = (value) => {
     try {
       localStorage.setItem(key, JSON.stringify(value));
-      setLiked(value);
+      setStoredValue(value);
     } catch (error) {
       console.error("shit happend in setLocalStorage ", error);
     }
   };
 
-  return { liked, setLocalStorage };
+  return { storedValues, setLocalStorage };
 };

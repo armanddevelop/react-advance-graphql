@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { Button, ImgWarpper, Img, Article } from "./styles";
 import { BiLike } from "react-icons/bi";
 import { AiTwotoneLike } from "react-icons/ai";
@@ -9,14 +9,13 @@ const DEAFULT_IMAGE =
     "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60";
 
 export const PhotoCard = ({ id = 0, likes = 0, srcImage = DEAFULT_IMAGE }) => {
-    const ref = useRef(null);
     const key = `like_${id}`;
-    const { show } = useLazyLoad(ref);
-    const { liked, setLocalStorage } = useLocalStorage(key);
+    const { show, reference } = useLazyLoad();
+    const { storedValues, setLocalStorage } = useLocalStorage(key);
     const [countLikes, setCountLikes] = useState(likes);
-    const Icon = !liked ? BiLike : AiTwotoneLike;
+    const Icon = !storedValues ? BiLike : AiTwotoneLike;
     return (
-        <Article ref={ref}>
+        <Article ref={reference}>
             {show && (
                 <>
                     <a href={`/detail/${id}`}>
@@ -24,7 +23,7 @@ export const PhotoCard = ({ id = 0, likes = 0, srcImage = DEAFULT_IMAGE }) => {
                             <Img src={srcImage} />
                         </ImgWarpper>
                     </a>
-                    <Button onClick={() => setLocalStorage(!liked)}>
+                    <Button onClick={() => setLocalStorage(!storedValues)}>
                         <Icon size="32px" />
                         {countLikes} Likes!!
                     </Button>
