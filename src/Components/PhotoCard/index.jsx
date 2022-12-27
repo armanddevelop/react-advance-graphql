@@ -17,7 +17,7 @@ export const PhotoCard = ({ id = 0, likes = 0, src = DEAFULT_IMAGE }) => {
         <Article ref={reference}>
             {show && (
                 <>
-                    <a href={`/detail/${id}`}>
+                    <a href={`/?detail=${id}`}>
                         <ImgWarpper>
                             <Img src={src} />
                         </ImgWarpper>
