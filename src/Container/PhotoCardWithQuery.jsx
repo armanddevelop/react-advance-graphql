@@ -2,10 +2,10 @@ import { useQuery } from "@apollo/client";
 import React from "react";
 import { PropTypes } from "prop-types";
 import { PhotoCard } from "../Components/PhotoCard";
-import { getSinglePhoto } from "../Querys/querys";
+import { GET_SINGLE_PHOTO } from "../Querys/querys";
 
 export const PhotoCardWithQuery = ({ id }) => {
-    const { error, data, loading } = useQuery(getSinglePhoto, {
+    const { error, data, loading } = useQuery(GET_SINGLE_PHOTO, {
         variables: { id },
     });
 

@@ -1,11 +1,11 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
 import { PropTypes } from "prop-types";
-import { withPhotos } from "../../Querys/querys";
+import { WITH_PHOTOS } from "../../Querys/querys";
 import { PhotoCard } from "../PhotoCard";
 
 export const ListOfPhotoCard = ({ categoryId }) => {
-    const { loading, error, data } = useQuery(withPhotos, {
+    const { loading, error, data } = useQuery(WITH_PHOTOS, {
         variables: { categoryId },
     });
     if (error) return <h2>Internal server Error</h2>;
