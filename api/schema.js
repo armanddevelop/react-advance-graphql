@@ -49,6 +49,7 @@ const typeDefs = gql`
 
   type Mutation {
     likeAnonymousPhoto(input: LikePhoto!): Photo
+    unlikeAnonymousPhoto(input: likePhoto!): Photo
     likePhoto(input: LikePhoto!): Photo
     signup(input: UserCredentials!): String
     login(input: UserCredentials!): String
