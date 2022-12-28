@@ -12,9 +12,11 @@ export const PhotoCard = ({ id = 0, likes = 0, src = DEAFULT_IMAGE }) => {
     const key = `like_${id}`;
     const { show, reference } = useLazyLoad();
     const { storedValues, setLocalStorage } = useLocalStorage(key);
-    const { toogleLike } = useLikePhoto();
+    const { toogleLike, toogleUnLike } = useLikePhoto();
     const handleClickFav = () => {
-        !storedValues && toogleLike({ variables: { input: { id } } });
+        !storedValues
+            ? toogleLike({ variables: { input: { id } } })
+            : toogleUnLike({ variables: { input: { id } } });
         setLocalStorage(!storedValues);
     };
 
