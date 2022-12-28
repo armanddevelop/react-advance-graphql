@@ -9,7 +9,7 @@ const renderList = (categories, fixed, loading) => (
         {!loading ? (
             categories.map(({ id, cover, name, emoji, path }) => (
                 <Item key={id}>
-                    <Category cover={cover} emoji={emoji} path={path} />
+                    <Category cover={cover} emoji={emoji} path={`/pet/${id}`} />
                 </Item>
             ))
         ) : (

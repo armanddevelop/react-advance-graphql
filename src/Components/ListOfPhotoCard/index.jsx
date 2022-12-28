@@ -1,12 +1,24 @@
+import { useQuery } from "@apollo/client";
 import React from "react";
+import { PropTypes } from "prop-types";
+import { WITH_PHOTOS } from "../../Querys/querys";
 import { PhotoCard } from "../PhotoCard";
 
-export const ListOfPhotoCard = () => {
+export const ListOfPhotoCard = ({ categoryId }) => {
+    const { loading, error, data } = useQuery(WITH_PHOTOS, {
+        variables: { categoryId },
+    });
+    if (error) return <h2>Internal server Error</h2>;
+    if (loading) return <h1>Loading.......</h1>;
+    const dataPhotos = data?.photos ? data.photos : [];
     return (
         <ul style={{ paddingLeft: "0px" }}>
-            {[1, 2, 3, 4, 5, 6, 7].map((item) => (
-                <PhotoCard key={item} id={item} />
+            {dataPhotos.map((photo) => (
+                <PhotoCard key={photo.id} {...photo} />
             ))}
         </ul>
     );
+};
+ListOfPhotoCard.propTypes = {
+    categoryId: PropTypes.number,
 };
