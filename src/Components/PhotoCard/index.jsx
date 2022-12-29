@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ImgWarpper, Img, Article } from "./styles";
 import { FavButton } from "../FavButton";
 import { useLazyLoad } from "../../Hooks/useLazyLoad";
@@ -24,11 +25,11 @@ export const PhotoCard = ({ id = 0, likes = 0, src = DEAFULT_IMAGE }) => {
         <Article ref={reference}>
             {show && (
                 <>
-                    <a href={`/?detail=${id}`}>
+                    <Link to={`/detail/${id}`}>
                         <ImgWarpper>
                             <Img src={src} />
                         </ImgWarpper>
-                    </a>
+                    </Link>
                     <FavButton
                         likes={likes}
                         liked={storedValues}
