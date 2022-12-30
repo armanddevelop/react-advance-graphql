@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Logo } from "./Components/Logo";
 import { NavBar } from "./Components/NavBar";
 import { Home, Detail, Favorites, NotRegister, User } from "./Pages";
