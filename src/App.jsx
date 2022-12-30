@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Logo } from "./Components/Logo";
 import { NavBar } from "./Components/NavBar";
 import { Home, Detail, Favorites, NotRegister, User } from "./Pages";
@@ -9,7 +8,7 @@ import { ProtectedRoutes } from "./Routes/ProtectedRoutes";
 import { GlobalStyle } from "./styles/GlobalStyles";
 
 export const App = () => {
-    const user = false;
+    const user = true;
     return (
         <>
             <BrowserRouter>
