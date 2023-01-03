@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Logo } from "./Components/Logo";
 import { NavBar } from "./Components/NavBar";
+import { AppContext } from "./Context";
 import { Home, Detail, Favorites, NotRegister, User } from "./Pages";
 import { ProtectedRoutes } from "./Routes/ProtectedRoutes";
 
 import { GlobalStyle } from "./styles/GlobalStyles";
 
 export const App = () => {
-    const user = true;
+    const { isAuth } = useContext(AppContext);
     return (
         <>
             <BrowserRouter>
@@ -22,7 +23,7 @@ export const App = () => {
                     <Route
                         element={
                             <ProtectedRoutes
-                                user={user}
+                                user={isAuth}
                                 redirectPath="/not-register"
                             />
                         }
