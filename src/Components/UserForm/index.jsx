@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useInputsData } from "../../Hooks/useInputsData";
-import { Form, Input, Button, Header } from "./styles";
+import { Form, Input, Button, Header, DivAnchor } from "./styles";
 
 export const UserForm = ({
     submitForm,
@@ -11,6 +10,17 @@ export const UserForm = ({
     isRegister,
 }) => {
     const { dataInput, setDataInput } = useInputsData(initialState);
+    const kindAnchor =
+        title === "Registrate" ? (
+            <a onClick={() => setRegister(!isRegister)}>
+                Ya tienes cuenta?, <b>inicia Sesion</b>
+            </a>
+        ) : (
+            <a onClick={() => setRegister(!isRegister)}>
+                No tienes cuenta?,
+                <b>Registrate</b>
+            </a>
+        );
     const handleSubmit = (e) => {
         e.preventDefault();
         submitForm(dataInput);
@@ -57,9 +67,7 @@ export const UserForm = ({
                         }
                     />
                 )}
-                <a onClick={() => setRegister(!isRegister)}>
-                    Ya tienes cuenta?, inicia Sesion
-                </a>
+                <DivAnchor>{kindAnchor}</DivAnchor>
                 <Button>{title}</Button>
             </Form>
         </>

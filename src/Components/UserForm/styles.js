@@ -28,3 +28,9 @@ export const Header = styled.h2`
   font-weight: 500px;
   padding: 8px 0px;
 `;
+
+export const DivAnchor = styled.div`
+  text-align: center;
+  margin: 10px;
+  color: #8d00ff;
+`;
