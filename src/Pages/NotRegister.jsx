@@ -6,11 +6,11 @@ import { useRegisterUser } from "../Hooks/useRegisterUser";
 
 export const NotRegister = () => {
     const { activeAuth, isRegister, setRegister } = useContext(AppContext);
-    const { setDataUser, response } = useRegisterUser();
+    const { setDataUser, response, mutationError, mutationLoading } =
+        useRegisterUser();
     const navigate = useNavigate();
-    const submitForm = (infoData) => {
-        console.log("esto vale infoDAta ", infoData);
-        setDataUser(infoData);
+    const submitForm = (infoUser) => {
+        setDataUser(infoUser);
         if (response) {
             activeAuth();
             navigate("/user");
@@ -29,6 +29,8 @@ export const NotRegister = () => {
                     }}
                     setRegister={setRegister}
                     isRegister={isRegister}
+                    error={mutationError}
+                    loading={mutationLoading}
                 />
             ) : (
                 <UserForm
@@ -41,6 +43,8 @@ export const NotRegister = () => {
                     }}
                     setRegister={setRegister}
                     isRegister={isRegister}
+                    error={mutationError}
+                    loading={mutationLoading}
                 />
             )}
         </>

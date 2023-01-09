@@ -21,6 +21,9 @@ export const Button = styled.button`
   display: block;
   width: 100%;
   text-align: center;
+  &:disabled {
+    background: #ddb9fa;
+  }
 `;
 export const Header = styled.h2`
   text-align: center;
@@ -33,4 +36,11 @@ export const DivAnchor = styled.div`
   text-align: center;
   margin: 10px;
   color: #8d00ff;
+`;
+export const Error = styled.span`
+  font-size: 14px;
+  color: red;
+`;
+export const DivError = styled.div`
+  text-align: center;
 `;
