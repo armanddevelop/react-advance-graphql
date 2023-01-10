@@ -2,15 +2,8 @@ import React from "react";
 import { PropTypes } from "prop-types";
 import { useErrors } from "../../Hooks/useErrors";
 import { useInputsData } from "../../Hooks/useInputsData";
-import {
-    Form,
-    Input,
-    Button,
-    Header,
-    DivAnchor,
-    Error,
-    DivError,
-} from "./styles";
+import { ErrorsComponent } from "../Errors";
+import { Form, Input, Button, Header, DivAnchor, DivError } from "./styles";
 
 export const UserForm = ({
     submitForm,
@@ -26,6 +19,7 @@ export const UserForm = ({
     const handleClick = () => {
         setRegister(!isRegister);
         setErrorMsg(false);
+        setDataInput(initialState);
     };
     const kindAnchor =
         title === "Registrate" ? (
@@ -47,7 +41,7 @@ export const UserForm = ({
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        submitForm(dataInput);
+        submitForm({ dataInput, title });
     };
     return (
         <>
@@ -84,9 +78,7 @@ export const UserForm = ({
                 <DivAnchor>{kindAnchor}</DivAnchor>
                 <Button disabled={loading}>{title}</Button>
             </Form>
-            <DivError>
-                <Error>{errorMsg && "el usuario ya existe"}</Error>
-            </DivError>
+            <DivError>{errorMsg && <ErrorsComponent title={title} />}</DivError>
         </>
     );
 };

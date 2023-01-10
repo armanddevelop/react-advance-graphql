@@ -37,10 +37,6 @@ export const DivAnchor = styled.div`
   margin: 10px;
   color: #8d00ff;
 `;
-export const Error = styled.span`
-  font-size: 14px;
-  color: red;
-`;
 export const DivError = styled.div`
   text-align: center;
 `;
