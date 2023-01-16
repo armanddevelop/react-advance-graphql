@@ -20,7 +20,8 @@ export const NotRegister = () => {
             response = await submit(title, dataInput, login);
         }
         if (response) {
-            activeAuth();
+            const { data } = response;
+            activeAuth(data);
             navigate("/user");
         }
     };

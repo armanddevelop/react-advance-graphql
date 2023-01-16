@@ -9,16 +9,18 @@ import { useLikePhoto } from "../../Hooks/useLikePhoto";
 const DEAFULT_IMAGE =
     "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60";
 
-export const PhotoCard = ({ id = 0, likes = 0, src = DEAFULT_IMAGE }) => {
+export const PhotoCard = ({
+    id = 0,
+    likes = 0,
+    src = DEAFULT_IMAGE,
+    liked,
+}) => {
     const key = `like_${id}`;
     const { show, reference } = useLazyLoad();
-    const { storedValues, setLocalStorage } = useLocalStorage(key);
+    //const { storedValues } = useLocalStorage(key);
     const { toogleLike, toogleUnLike } = useLikePhoto();
     const handleClickFav = () => {
-        !storedValues
-            ? toogleLike({ variables: { input: { id } } })
-            : toogleUnLike({ variables: { input: { id } } });
-        setLocalStorage(!storedValues);
+        toogleLike({ variables: { input: { id } } });
     };
 
     return (
@@ -32,7 +34,7 @@ export const PhotoCard = ({ id = 0, likes = 0, src = DEAFULT_IMAGE }) => {
                     </Link>
                     <FavButton
                         likes={likes}
-                        liked={storedValues}
+                        liked={liked}
                         onClick={handleClickFav}
                     />
                 </>
