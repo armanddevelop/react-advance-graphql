@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Logo } from "./Components/Logo";
 import { NavBar } from "./Components/NavBar";
 import { AppContext } from "./Context";
-import { Home, Detail, Favorites, NotRegister, User } from "./Pages";
+import { Home, Detail, NotRegister, User, Favorites } from "./Pages";
 import { ProtectedRoutes } from "./Routes/ProtectedRoutes";
-
 import { GlobalStyle } from "./styles/GlobalStyles";
 
 export const App = () => {
