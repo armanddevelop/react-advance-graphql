@@ -1,3 +1,4 @@
 import React from "react";
+import { Favorites as Fav } from "../Components/Favorites";
 
-export const Favorites = () => <h1>Esto es favoritos</h1>;
+export const Favorites = () => <Fav />;

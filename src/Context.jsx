@@ -16,9 +16,19 @@ const AppProvider = ({ children }) => {
         sessionStorage.setItem("token", JSON.stringify(storeData[0]));
         setIsAuth(true);
     };
+    const closeSession = () => {
+        sessionStorage.removeItem("token");
+        setIsAuth(false);
+    };
     return (
         <AppContext.Provider
-            value={{ isAuth, activeAuth, isRegister, setRegister }}
+            value={{
+                isAuth,
+                activeAuth,
+                isRegister,
+                setRegister,
+                closeSession,
+            }}
         >
             {children}
         </AppContext.Provider>

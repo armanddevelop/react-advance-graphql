@@ -1,3 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Button } from "../Components/UserForm/styles";
+import { AppContext } from "../Context";
 
-export const User = () => <h1>Esto es user</h1>;
+export const User = () => {
+    const { closeSession } = useContext(AppContext);
+    return (
+        <>
+            <Button onClick={closeSession}>Sing Out</Button>
+        </>
+    );
+};

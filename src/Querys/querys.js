@@ -25,3 +25,16 @@ export const GET_SINGLE_PHOTO = gql`
     }
   }
 `;
+
+export const GET_FAVORITES = gql`
+  query getFav {
+    favs {
+      id
+      categoryId
+      src
+      likes
+      userId
+      liked
+    }
+  }
+`;
