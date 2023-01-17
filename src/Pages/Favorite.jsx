@@ -2,7 +2,7 @@ import React from "react";
 import { Favorites as Fav } from "../Components/Favorites";
 import { DocumentHead } from "../Components/Head";
 
-export const Favorites = () => (
+const Favorites = () => (
     <>
         <DocumentHead
             title={"Your favorites"}
@@ -12,3 +12,4 @@ export const Favorites = () => (
         <Fav />
     </>
 );
+export default Favorites;

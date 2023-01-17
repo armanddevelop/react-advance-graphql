@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 import { PhotoCard } from "../PhotoCard";
 
 export const ListOfFavorites = ({ favorites }) => {
@@ -30,4 +31,7 @@ export const ListOfFavorites = ({ favorites }) => {
             </ul>
         </>
     );
+};
+ListOfFavorites.propTypes = {
+    favorites: PropTypes.object,
 };
