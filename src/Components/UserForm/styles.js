@@ -21,10 +21,22 @@ export const Button = styled.button`
   display: block;
   width: 100%;
   text-align: center;
+  &:disabled {
+    background: #ddb9fa;
+  }
 `;
 export const Header = styled.h2`
   text-align: center;
   font-size: 16px;
   font-weight: 500px;
   padding: 8px 0px;
+`;
+
+export const DivAnchor = styled.div`
+  text-align: center;
+  margin: 10px;
+  color: #8d00ff;
+`;
+export const DivError = styled.div`
+  text-align: center;
 `;
