@@ -1,7 +1,7 @@
 import React, { useState, createContext } from "react";
 
-const AppContext = createContext(null);
-const AppProvider = ({ children }) => {
+export const AppContext = createContext(null);
+export const AppProvider = ({ children }) => {
     const [isAuth, setIsAuth] = useState(() => {
         const token = sessionStorage.getItem("token");
         if (token) return true;

@@ -5,7 +5,11 @@ import { AppContext } from "../Context";
 import { useRegisterUser } from "../Hooks/useRegisterUser";
 import { useLoginUser } from "../Hooks/useLoginUser";
 import { submitForm as submit } from "../utils/formUtils";
-
+const FORM_FIELDS = {
+    email: "",
+    password: "",
+    confirmPassword: "",
+};
 export const NotRegister = () => {
     const { activeAuth, isRegister, setRegister } = useContext(AppContext);
     const { register, mutationError, mutationLoading } = useRegisterUser();
@@ -31,11 +35,7 @@ export const NotRegister = () => {
                 <UserForm
                     submitForm={submitForm}
                     title={"Registrate"}
-                    initialState={{
-                        email: "",
-                        password: "",
-                        confirmPassword: "",
-                    }}
+                    initialState={FORM_FIELDS}
                     setRegister={setRegister}
                     isRegister={isRegister}
                     error={mutationError}
@@ -45,10 +45,7 @@ export const NotRegister = () => {
                 <UserForm
                     submitForm={submitForm}
                     title={"Iniciar Sesion"}
-                    initialState={{
-                        email: "",
-                        password: "",
-                    }}
+                    initialState={FORM_FIELDS}
                     setRegister={setRegister}
                     isRegister={isRegister}
                     error={loginError}

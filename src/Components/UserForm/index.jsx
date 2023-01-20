@@ -67,12 +67,7 @@ export const UserForm = ({
                         name="confirmPassword"
                         type="password"
                         value={dataInput.confirmPassword}
-                        onChange={(e) =>
-                            setDataInput({
-                                ...dataInput,
-                                [e.target.name]: e.target.value,
-                            })
-                        }
+                        onChange={(e) => handleChange(e)}
                     />
                 )}
                 <DivAnchor>{kindAnchor}</DivAnchor>
